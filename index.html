@@ -1,0 +1,250 @@
+
+<html>
+<head>
+<style> 
+    button {
+  box-shadow:2px 10px 9px  #696969;
+}
+  button {
+     text-shadow:1px 2px #888888;
+}
+    .rezultatas{
+        box-shadow: 2px 9px 9px  #696969;
+    } 
+     .main{
+        box-shadow: 2px 5px 15px  #696969;
+    } 
+    </style>   
+  <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<div class="main">
+    
+    <div class="isvedimas">
+    <div class="rezultatas">
+        
+        </div>
+    </div>
+    <div class="apatinedalis">
+    <div class="pagrindas">
+        <button class="oper" onclick="trinti()">AC</button>
+        <button class="oper" onclick="cetrinimas()">CE</button>
+        <button class="oper" onclick="procentai()">%</button>
+        <button class="oper" onclick="pasirinkimas(3)">/</button>
+        <button  class="sk" onclick="skaic('7')">7</button>
+        <button  class="sk" onclick="skaic('8')">8</button>
+        <button  class="sk" onclick="skaic('9')">9</button>
+        <button class="oper" onclick="pasirinkimas(4)">X</button>
+        <button  class="sk" onclick="skaic('4')">4</button>
+        <button  class="sk" onclick="skaic('5')">5</button>
+        <button  class="sk" onclick="skaic('6')">6</button>
+        <button class="oper" onclick="pasirinkimas(2)">-</button>
+        <button  class="sk" onclick="skaic('1')">1</button>
+        <button  class="sk" onclick="skaic('2')">2</button>
+        <button  class="sk" onclick="skaic('3')">3</button>
+        <button class="oper" onclick="pasirinkimas(1)">+</button>
+        <button class="didskaic" onclick="skaic('0')">0</button>
+        <button class="oper" onclick="kablelis()">.</button>
+        <button class="oper" onclick="lygu()">=</button>
+    
+    </div>
+
+<div class="funkcijos">
+        <button class="funkc" onclick="kvadratas()">x²</button>
+    <button class="funkc" onclick="saknis()">√</button>
+    <button class="funkc" onclick="faktorialas()">!</button>
+    <button class="funkc" onclick="sinusas()">Sin</button>
+    <button class="funkc" onclick="cosinusas()">Cos</button>
+        </div>    
+    
+    <div class="funkcijos2">
+        
+    <button class="funkc" onclick="tangentas()">Tan</button>
+    <button class="funkc" onclick="procentai()">%</button>
+    <button class="funkc" onclick="logaritmas10()">ln</button>
+    <button class="funkc" onclick="pi()">π</button>
+    <button class="funkc" onclick="efunkcija()">e</button>
+        
+        </div>
+    
+    <div class="funkcijos3">
+         <button class="funkc" onclick="kubas()"> x³ </button>
+    <button class="funkc" onclick="modulis()">|x|</button>
+    <button class="funkc" onclick="logaritmas()">log</button>
+    <button class="funkc" onclick="epakeltaslaipsniu()">exp</button>
+    <button class="funkc" onclick="round()">Apv </button>
+        
+        
+        
+        
+        
+        </div>    
+
+    </div>
+        
+    </div>
+    
+    
+    <script>
+        
+    let sk = 0;
+    let sk1;
+        let zenklas = 0;
+    const isvedimas = document.querySelector(".rezultatas");
+        
+        
+     console.log("info konsoleje");  
+ 
+               
+    function skaic(norimasskaic){
+    var laikinas= (isvedimas.innerHTML);
+        laikinas = laikinas + norimasskaic;
+        isvedimas.innerHTML= laikinas;
+    }
+    
+    
+    function pasirinkimas(kazkas){
+        zenklas = kazkas;
+        sk1 = Number(isvedimas.innerHTML);
+        isvedimas.innerHTML="";
+        //console.log("zenklas1 =" +zenklas1 +  "zenklas" + kazkas);
+        
+    }
+    
+    
+    function lygu(){
+        if(zenklas>0){  
+        var ats;
+        var sk2= Number(isvedimas.innerHTML);
+        if(zenklas==1){ats=sk1+sk2;}
+        if(zenklas==2){ats=sk1-sk2;}
+        if(zenklas==3){ats=sk1/sk2;}
+        if(zenklas==4){ats=sk1*sk2;}   
+        //console.log("ats= "+ ats);
+        isvedimas.innerHTML=ats;
+    }
+        else{
+            alert("Pirma pasirinkite skaičių");
+        }
+    }
+    
+        
+        function trinti(){
+            sk1 = 0;
+            isvedimas.innerHTML="";
+        }
+        
+        function sinusas(){
+            
+            sk1=Number(isvedimas.innerHTML);
+            isvedimas.innerHTML = Math.sin(sk1);
+        }
+        
+           function cosinusas(){
+            
+            sk1=Number(isvedimas.innerHTML);
+            isvedimas.innerHTML = Math.cos(sk1);
+        }
+         function tangentas(){
+            
+            sk1=Number(isvedimas.innerHTML);
+            isvedimas.innerHTML = Math.tan(sk1);
+        }
+        function saknis(){
+            
+            sk1=Number(isvedimas.innerHTML);
+            isvedimas.innerHTML = Math.sqrt(sk1);
+        }
+         function kvadratas(){
+            
+            sk1=Number(isvedimas.innerHTML);
+            isvedimas.innerHTML = sk1 * sk1;
+        }
+         function kablelis(){
+         laikin = isvedimas.innerHTML;
+             if (laikin.indexOf(".")<0) {
+             
+             
+             laikin = laikin+ ".";
+                isvedimas.innerHTML = laikin;
+                 }
+        }
+            
+            function faktorialas() {
+                
+                var laikin = Number(isvedimas.innerHTML)
+                var ats = 1;
+                for (var i=laikin; i>0; i=i-1){
+                    ats = ats * i;
+                }
+                
+                isvedimas.innerHTML= ats; 
+            }
+             
+             function cetrinimas() {
+                 
+                 var laikin= isvedimas.innerHTML;
+                 
+                 isvedimas.innerHTML= laikin.substr(0, laikin.length-1);
+                 
+             }
+        function procentai(){
+            
+            sk1=Number(isvedimas.innerHTML);
+            isvedimas.innerHTML = sk1/100;
+        }
+             
+            function logaritmas10(){
+            
+            sk1=Number(isvedimas.innerHTML);
+            isvedimas.innerHTML = Math.log10(sk1);
+        }  
+           function logaritmas(){
+            
+            sk1=Number(isvedimas.innerHTML);
+            isvedimas.innerHTML = Math.log(sk1);
+        }    
+           
+        function pi(){
+            
+            sk1=Number(isvedimas.innerHTML);
+            isvedimas.innerHTML = Math.PI;
+        }         
+           function efunkcija(){
+            
+            sk1=Number(isvedimas.innerHTML);
+            isvedimas.innerHTML = Math.E;
+        }     
+        
+           function kubas(){
+            
+            sk1=Number(isvedimas.innerHTML);
+            isvedimas.innerHTML = sk1 * sk1 * sk1;
+           }
+        
+              function modulis(){
+            
+            sk1=Number(isvedimas.innerHTML);
+            isvedimas.innerHTML = Math.abs(sk1);
+        }  
+         function epakeltaslaipsniu(){
+            
+            sk1=Number(isvedimas.innerHTML);
+         isvedimas.innerHTML = Math.exp(sk1);
+                                        
+                                    
+           }
+        function round(){
+            
+            sk1=Number(isvedimas.innerHTML);
+            isvedimas.innerHTML = Math.round(sk1);
+        }
+        
+        
+    </script>
+    
+    <script type="text/javascript" src ="scriptas.js"></script>
+</body>
+</html> 
